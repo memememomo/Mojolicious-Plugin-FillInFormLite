@@ -1,0 +1,70 @@
+package Mojolicious::Plugin::FillInForm;
+use 5.008005;
+use Mojo::Base 'Mojolicious::Plugin';
+
+use HTML::FillInForm::Lite;
+
+our $VERSION = "0.01";
+
+
+sub register {
+    my ($self, $app, $conf) = @_;
+
+    $conf ||= {};
+
+    $app->helper(render_fillinform => sub {
+        my $c = shift;
+        my $params = shift;
+
+        my $html = $self->render(partial => 1, @_)->to_string;
+        my $fill = HTML::FillInForm::Lite->new(
+            fill_password => 1,
+            %$conf,
+        );
+
+        $c->render_text(
+            $fill->fill(\$html, $params),
+            format => 'html',
+        );
+    });
+}
+
+
+1;
+__END__
+
+=encoding utf-8
+
+=head1 NAME
+
+Mojolicious::Plugin::FillInForm - Mojolicious plugin to fill in form.
+
+=head1 SYNOPSIS
+
+    # Mojolicious::Lite
+    plugin('FillInForm');
+
+    # Mojolicious
+    $app->plugin('FillInForm');
+
+    # Controller
+    my %filled = (name => 'John');
+    $c->render_fillinform(\%filled);
+
+=head1 DESCRIPTION
+
+Mojolicious::Plugin::FillInForm is Mojolicious plugin to fill in form.
+
+=head1 LICENSE
+
+Copyright (C) Uchiko.
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.
+
+=head1 AUTHOR
+
+Uchiko E<lt>memememomo@gmail.comE<gt>
+
+=cut
+
