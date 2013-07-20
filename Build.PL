@@ -23,8 +23,8 @@ my %args = (
         'Module::Build' => 0.38,
     },
 
-    name            => 'Mojolicious-Plugin-FillInForm',
-    module_name     => 'Mojolicious::Plugin::FillInForm',
+    name            => 'Mojolicious-Plugin-FillInFormLite',
+    module_name     => 'Mojolicious::Plugin::FillInFormLite',
     allow_pureperl => 0,
 
     script_files => [glob('script/*'), glob('bin/*')],

@@ -2,7 +2,7 @@ use strict;
 use Test::More;
 
 use_ok $_ for qw(
-    Mojolicious::Plugin::FillInForm
+    Mojolicious::Plugin::FillInFormLite
 );
 
 done_testing;

@@ -1,14 +1,14 @@
 # NAME
 
-Mojolicious::Plugin::FillInForm - It's new $module
+Mojolicious::Plugin::FillInFormLite - It's new $module
 
 # SYNOPSIS
 
-    use Mojolicious::Plugin::FillInForm;
+    use Mojolicious::Plugin::FillInFormLite;
 
 # DESCRIPTION
 
-Mojolicious::Plugin::FillInForm is ...
+Mojolicious::Plugin::FillInFormLite is ...
 
 # LICENSE
 

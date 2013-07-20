@@ -1,4 +1,4 @@
-package Mojolicious::Plugin::FillInForm;
+package Mojolicious::Plugin::FillInFormLite;
 use 5.008005;
 use Mojo::Base 'Mojolicious::Plugin';
 
@@ -16,14 +16,14 @@ sub register {
         my $c = shift;
         my $params = shift;
 
-        my $html = $self->render(partial => 1, @_)->to_string;
+        my $html = $c->render(partial => 1, @_)->to_string;
         my $fill = HTML::FillInForm::Lite->new(
             fill_password => 1,
             %$conf,
         );
 
-        $c->render_text(
-            $fill->fill(\$html, $params),
+        $c->render(
+            text => $fill->fill(\$html, $params),
             format => 'html',
         );
     });
@@ -42,10 +42,10 @@ Mojolicious::Plugin::FillInForm - Mojolicious plugin to fill in form.
 =head1 SYNOPSIS
 
     # Mojolicious::Lite
-    plugin('FillInForm');
+    plugin('FillInFormLite');
 
     # Mojolicious
-    $app->plugin('FillInForm');
+    $app->plugin('FillInFormLite');
 
     # Controller
     my %filled = (name => 'John');

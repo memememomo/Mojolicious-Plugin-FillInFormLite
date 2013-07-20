@@ -12,7 +12,7 @@
       "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
       "version" : "2"
    },
-   "name" : "Mojolicious-Plugin-FillInForm",
+   "name" : "Mojolicious-Plugin-FillInFormLite",
    "no_index" : {
       "directory" : [
          "t",
