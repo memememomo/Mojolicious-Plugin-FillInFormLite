@@ -8,7 +8,7 @@ Mojolicious::Plugin::FillInFormLite - It's new $module
 
 # DESCRIPTION
 
-Mojolicious::Plugin::FillInFormLite is ...
+Mojolicious::Plugin::FillInFormLite is a helper for FillInForm.
 
 # LICENSE
 
