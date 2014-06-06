@@ -4,7 +4,7 @@ use Mojo::Base 'Mojolicious::Plugin';
 
 use HTML::FillInForm::Lite;
 
-our $VERSION = "0.01";
+our $VERSION = "0.02";
 
 
 sub register {
@@ -16,7 +16,7 @@ sub register {
         my $c = shift;
         my $params = shift;
 
-        my $html = $c->render(partial => 1, @_)->to_string;
+        my $html = $c->render(partial => 1, 'mojo.to_string' => 1, @_);
         my $fill = HTML::FillInForm::Lite->new(
             fill_password => 1,
             %$conf,
